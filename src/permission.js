@@ -4,7 +4,7 @@ import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条样式
 import {getToken} from '@/utils/auth' // 验权
 const whiteList = ['/login', '/404'] //白名单,不需要登录的路由
-router.beforeEach((to, from, next) = > {
+router.beforeEach((to, from, next) => {
   NProgress.start()
   if(getToken()
 )
@@ -15,7 +15,7 @@ router.beforeEach((to, from, next) = > {
     next({path: '/'})
     NProgress.done() // 结束Progress
   } else if (!store.getters.role) {
-    store.dispatch('GetInfo').then(() = > {
+    store.dispatch('GetInfo').then(() => {
       next({...to})
     }
   )
@@ -34,7 +34,7 @@ if (whiteList.indexOf(to.path) !== -1) {
   NProgress.done() // 结束Progress
 }
 })
-router.afterEach(() = > {
+router.afterEach(() => {
   NProgress.done() // 结束Progress
 }
 )

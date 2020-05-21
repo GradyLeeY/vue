@@ -1,51 +1,42 @@
 const getters = {
-    sidebar: state = > state.app.sidebar,
+    sidebar: state => state.app.sidebar,
   visitedViews
 :
-state =
->
+state =>
 state.app.visitedViews,
 
   nickname
 :
-state =
->
+state =>
 state.user.nickname,
   userId
 :
-state =
->
+state =>
 state.user.userId,
   avatar
 :
-state =
->
+state =>
 state.user.avatar,
   role
 :
-state =
->
+state =>
 state.user.role,
   menus
 :
-state =
->
+state =>
 state.user.menus,
   permissions
 :
-state =
->
+state =>
 state.user.permissions,
 
   permission_routers
 :
-state =
->
+state =>
 state.permission.routers,
   addRouters
 :
-state =
->
+state =>
 state.permission.addRouters
 }
 export default getters

@@ -22,7 +22,7 @@ function hasPermission(menus, route) {
  * @param menus
  */
 function filterAsyncRouter(asyncRouterMap, menus) {
-  const accessedRouters = asyncRouterMap.filter(route = > {
+  const accessedRouters = asyncRouterMap.filter(route => {
     //filter,js语法里数组的过滤筛选方法
     if(hasPermission(menus, route)
 )
@@ -46,7 +46,7 @@ const permission = {
       addRouters: [] //本用户的角色赋予的新增的动态路由
     },
     mutations: {
-      SET_ROUTERS: (state, routers) = > {
+      SET_ROUTERS: (state, routers) => {
       state.addRouters = routers
       state.routers = constantRouterMap.concat(routers) //将固定路由和新增路由进行合并, 成为本用户最终的全部路由信息
     }
@@ -57,7 +57,7 @@ const permission = {
   GenerateRoutes({commit}, userPermission)
   {
     //生成路由
-    return new Promise(resolve = > {
+    return new Promise(resolve => {
       //roles是后台传过来的角色数组,比如['管理员','文章']
       const role = userPermission.roleName;
     const menus = userPermission.menuList;

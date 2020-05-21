@@ -8,10 +8,9 @@ const service = axios.create({
   timeout: 15000                  // 请求超时时间2
 })
 // request拦截器
-service.interceptors.request.use(config = > {
+service.interceptors.request.use(config => {
   return config
-}, error =
->
+}, error =>
 {
   // Do something with request error
   console.error(error) // for debug
@@ -20,7 +19,7 @@ service.interceptors.request.use(config = > {
 )
 // respone拦截器
 service.interceptors.response.use(
-  response = > {
+  response => {
   const res = response.data;
 if (res.code == '1000') {
   return res;
@@ -33,8 +32,8 @@ if (res.code == '100') {
     message: res.msg,
     type: 'error',
     duration: 500,
-    onClose: () = > {
-    store.dispatch('FedLogOut').then(() = > {
+    onClose: () => {
+    store.dispatch('FedLogOut').then(() => {
       location.reload()// 为了重新实例化vue-router对象 避免bug
     })
 }
@@ -50,8 +49,7 @@ if (res.code == '100') {
   return Promise.reject(res)
 }
 },
-error =
->
+error =>
 {
   console.error('err' + error)// for debug
   Message({
